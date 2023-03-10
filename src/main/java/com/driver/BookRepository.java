@@ -11,7 +11,10 @@ public class BookRepository {
     }
 
     public Book save(Book book){
-        bookrecord.put(book.getId(),book);
+        if(bookrecord.size()==0){
+            bookrecord.put(1,book);
+        }
+        bookrecord.put(bookrecord.size()+1,book);
         return book;
     }
 
