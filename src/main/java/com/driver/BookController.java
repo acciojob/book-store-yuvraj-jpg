@@ -29,7 +29,7 @@ public class BookController {
         bookService.deleteBookById(id);
         return new ResponseEntity<>("Deleted", HttpStatus.OK);
     }
-    @GetMapping("/books/get-books-by-author?author=author+name")
+    @GetMapping("/books/get-all-books")
     public ResponseEntity findAllBooks(){
         List<Book> list = bookService.findAllBooks();
         return new ResponseEntity<>(list, HttpStatus.OK);
@@ -47,7 +47,7 @@ public class BookController {
 
     @GetMapping("/books/get-books-by-genre?genre=genre+name")
     public ResponseEntity findBooksByGenre(@RequestParam String genre){
-        List<Book> list = bookService.findBooksByAuthor(genre);
+        List<Book> list = bookService.findBooksByGenre(genre);
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
